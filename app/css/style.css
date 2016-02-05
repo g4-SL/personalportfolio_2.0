@@ -5,12 +5,13 @@ html {
   box-sizing: inherit; }
 
 body {
-  max-width: 800px; }
+  margin: 15px; }
 
 section {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  text-align: center; }
   section::after {
     clear: both;
     content: "";
@@ -22,10 +23,19 @@ section {
     width: 23.23176%; }
     section aside:last-child {
       margin-right: 0; }
-  section article {
+  section article p {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 74.41059%; }
-    section article:last-child {
+    width: 31.76157%; }
+    section article p:last-child {
       margin-right: 0; }
+
+#header-branding {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  #header-branding::after {
+    clear: both;
+    content: "";
+    display: table; }
