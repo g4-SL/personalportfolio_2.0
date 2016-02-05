@@ -1,2 +1,16 @@
 @import "bourbon";
 @import "neat";
+
+body{
+	max-width:900px;
+}
+
+section {
+  @include outer-container;
+  aside {
+    @include span-columns(3);
+  }
+  article {
+    @include span-columns(9);
+  }
+}
