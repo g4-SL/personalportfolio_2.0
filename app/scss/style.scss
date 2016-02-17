@@ -2,71 +2,125 @@
 @import "neat";
 @include font-face("yanone", "../fonts/YanoneKaffeesatz-Light", $file-formats:"ttf");
 
+$space-top-base: 40px;
+
 body{
 	margin:0;
-	background: url(../images/main-bg.jpg);
+  background: #fafafa;
 }
-h1, h2, p, span{
+h1{
+  font-size: 2em;
+}
+h2{
+  font-size: 1.5em;
+}
+h4{
+  font-size: 1.2em;
+  font-weight: normal;
+}
+h1, h2, h4, p, span{
+  margin: 15px 0;
+}
+h1, h2, h4, p, span, li{
 	font-family: yanone;
 	text-transform: uppercase;
 	letter-spacing: 2pt;
-	margin: 5px 0;
 	line-height: 1.3;
 }
 ul{
 	padding: 0;
 }
+header{
+  padding: 100px 0;
+  text-align: center;
+}
+footer{
+  padding: $space-top-base 0;
+  text-align: center;
+  background: #e2e2e2;
+}
 #main{
-	@include size(1100px);
 	margin: 0 auto;
 }
-section {
-  	@include outer-container;
-	max-width: 100%;
-	text-align: center;
-	padding: 25px 0;
+section{
+  @include outer-container(100%);
+  @include clearfix;
+  padding: 0.1px;
+}
+.container {
+  @include outer-container(100%);
+  $margin-container: $space-top-base 14em !default;
+  margin: $margin-container;
+  text-align: center;
 }
 #work{
 	ul{
-		@include outer-container();
-		max-width: 100%;
-		li.work-wrapper{
-			@include span-columns(3);
-			@include omega(4n);
-			background: #D9BC01;
-			border-bottom-left-radius: 12px;
-			border-bottom-right-radius: 12px;
-			margin-bottom: 20px;
-			margin-right: 20px;
-			*{
-				display: block;
-				@include size(100%);
-			}
-			span{
-				padding: 15px 0;
-			}
+		@include outer-container(100%);
+    margin: 0;
+		li{
+      float: left;
+      width: 50%;
+      a{
+        text-decoration: none;
+        h1{
+          margin-bottom: 15px;
+        }
+      }
 		}
+    li#li1{
+      background: url("/images/11.png");
+    }
+    li#li2{
+      background: url("/images/02.png");
+    }
+    li#li3{
+      background: url("/images/03.png");
+    }
+    li#li4{
+      background: url("/images/04.png");
+    }
 	}
 }
-header{
-	background: #1AF1F2;
-}
-form{
-	@include outer-container();
-	input[type="text"]{
-		@include span-columns(7);
-		float: none;
-		background-color: transparent;
-		border: none;
-		border-bottom: 1px solid #c1c1c1;
-		padding: 10px;
-		margin: 30px auto 0;
-	}
-	input[type="text"]:nth-child(3){
-		margin-bottom: 50px;
-	}
-	input[type="submit"]{
-	}
+#about{
+  $padding-btn: 7px 15px;
+  $base-color: #e8d1ae;
+  background: #e2e2e2;
+  ul{
+    li{
+      display: inline-block;
+      background: $base-color;
+      padding: $padding-btn;
+      margin-bottom: 10px;
+      margin-right: 5px;
+      font-size: 0.9em;
+    }
+  }
+} 
+
+#contact{
+  $padding-btn: 7px 15px;
+  $base-color: #e8d1ae;
+  form{
+    @include outer-container();
+    input[type="text"]{
+      @include span-columns(10);
+      float: none;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #c1c1c1;
+      padding: 10px;
+      margin: 30px auto 0;
+    }
+    input[type="text"]:nth-child(3){
+      margin-bottom: 50px;
+    }
+    input[type="submit"]{
+      background: transparentize(#fff, 1);
+      border: 1px solid $base-color;
+      color: $base-color;
+      padding: $padding-btn;
+    }
+  }
 }
 
 .side-image {  
@@ -96,7 +150,7 @@ form{
     padding: 3em;
 
     @include media($large-screen) {
-      @include span-columns(4);
+      @include span-columns(6);
       background-position: bottom;
       background-size: cover;
       border-right: $side-image-border;
@@ -108,7 +162,7 @@ form{
     padding: 1em 1em 4em 1em;
 
     @include media($large-screen) {
-      @include span-columns(8);
+      @include span-columns(6);
       padding: 4em 4em 8em 4em;
     }
 
@@ -136,59 +190,52 @@ form{
   @include reset-display();
 }
 
-.hero {  
-  $base-border-radius: 3px !default;
-  $action-color: #477DCA !default;
-  $large-screen: em(860) !default;
-  $hero-background-top: #7F99BE; 
-  $hero-background-bottom: #20392B;
-  $hero-color: white;
-  $gradient-angle: 10deg;
-  $hero-image: 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png';
+.hover-tile-outer {
+  $base-line-height: 1.5em !default;
+  $medium-screen: em(640) !default;
+  $hover-tile-height: 30em;
+  $base-spacing: 1.5em;
 
-  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
-  background-color: #324766;
   background-position: top;
-  background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 3em;
-
-  .hero-logo img {
-    height: 4em;
-    margin-bottom: 1em;
+  background-color: beige;
+  cursor: pointer;
+  height: $hover-tile-height;
+  margin-bottom: 0;
+  
+  @include media($medium-screen) {
+    width: 40%;
   }
 
-  .hero-inner {
-    @include outer-container;
-    @include clearfix;
-    margin: auto;
-    padding: 3.5em;
-    text-align: center;
+  .hover-tile-container {
+    height: $hover-tile-height;
+    overflow: hidden;
+  }
 
-    .hero-copy {
-      text-align: center;
-      
-      h1 {
-        color: $hero-color;
-        font-size: 1.6em;
-        margin-bottom: 0.5em;
+  .hover-tile-container:hover > .hover-tile {
+    @include transform(translate(0, -100%));
+  }
 
-        @include media($large-screen) {
-          font-size: 1.8em;
-        }
-      }
+  .hover-tile {
+    @include transition(all, 0.4s ease-in-out);
+    background: inherit;
+    color: white;
+    height: inherit;
+    overflow: hidden;
+    padding: $base-spacing;
+  }
 
-      p {
-        color: $hero-color;
-        line-height: 1.4em;
-        margin: 0 auto 3em auto; 
+  .hover-tile-hidden {
+    background: transparentize(#000, 0.4);
+    padding: 100px;
 
-        @include media($large-screen) {
-          font-size: 1.1em;
-          max-width: 40%;
-        }
-      }
+    p {
+      color: transparentize(#fff, 0.3);
+      line-height: $base-line-height;
+    }
+
+    h4 {
+      margin: 0 0 0.5em 0;
     }
   }
 }
-
