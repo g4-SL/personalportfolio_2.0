@@ -10,21 +10,10 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     neat = require('node-neat').includePaths;
 
-gulp.task('php', function() {
-  php.server({ 
-    base: 'app', 
-    port: 8010, 
-    keepalive: true
-  });
-});
-
 // Start browserSync server
-gulp.task('browserSync', ['php'], function() {
+gulp.task('browserSync', function() {
   browserSync({
-    proxy: '127.0.0.1:8010',
-    port: 8080,
-    open: true,
-    notify: false
+    server: 'app'
   });
 });
 

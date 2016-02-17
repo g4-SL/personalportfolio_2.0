@@ -1,6 +1,9 @@
 @import "bourbon";
 @import "neat";
-@include font-face("yanone", "../fonts/YanoneKaffeesatz-Light", $file-formats:"ttf");
+@include font-face("yanone", "../fonts/YanoneKaffeesatz-Regular", $file-formats:"ttf");
+@include font-face("jennifer", "../fonts/Jennifer Lynne Bold", $file-formats:"ttf");
+@include font-face("loki-cola", "../fonts/Loki Cola", $file-formats:"ttf");
+@include font-face("merriweather", "../fonts/Merriweather-Regular", $file-formats:"ttf");
 
 $space-top-base: 40px;
 
@@ -9,19 +12,29 @@ body{
   background: #fafafa;
 }
 h1{
+  font-family: jennifer;
   font-size: 2em;
+  line-height: 1.3;
 }
 h2{
   font-size: 1.5em;
 }
 h4{
+  font-family: yanone;
   font-size: 1.2em;
+  text-transform: uppercase;
   font-weight: normal;
+  letter-spacing: 2pt;
+}
+p{
+  font-size: 1em;
+  font-family: verdana;
+  line-height: 1.5;
 }
 h1, h2, h4, p, span{
   margin: 15px 0;
 }
-h1, h2, h4, p, span, li{
+h2, span, li{
 	font-family: yanone;
 	text-transform: uppercase;
 	letter-spacing: 2pt;
@@ -31,7 +44,7 @@ ul{
 	padding: 0;
 }
 header{
-  padding: 100px 0;
+  padding-top: 100px;
   text-align: center;
 }
 footer{
@@ -49,8 +62,9 @@ section{
 }
 .container {
   @include outer-container(100%);
-  $margin-container: $space-top-base 14em !default;
+  $margin-container: $space-top-base auto !default;
   margin: $margin-container;
+  width: 500px;
   text-align: center;
 }
 #work{
@@ -84,16 +98,33 @@ section{
 #about{
   $padding-btn: 7px 15px;
   $base-color: #e8d1ae;
-  background: #e2e2e2;
+  border-top: 1px solid #e8d1ae;
+  height: 285px;
   ul{
     li{
       display: inline-block;
-      background: $base-color;
+      border: 1px solid $base-color;
       padding: $padding-btn;
       margin-bottom: 10px;
       margin-right: 5px;
-      font-size: 0.9em;
+      font-size: 0.8em;
     }
+  }
+  .arrow{
+    height: 2rem;
+    width: 2rem;
+    border-bottom: 1px solid #bdbdbd;
+    border-right: 1px solid #bdbdbd;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -1rem;
+    -webkit-transition: .4s;
+    transition: .4s;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    cursor: pointer;
   }
 } 
 

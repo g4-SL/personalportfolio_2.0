@@ -8,26 +8,54 @@ html {
   font-family: "yanone";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/YanoneKaffeesatz-Light.ttf") format("truetype"); }
+  src: url("../fonts/YanoneKaffeesatz-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "jennifer";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Jennifer Lynne Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "loki-cola";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Loki Cola.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "merriweather";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Merriweather-Regular.ttf") format("truetype"); }
 
 body {
   margin: 0;
   background: #fafafa; }
 
 h1 {
-  font-size: 2em; }
+  font-family: jennifer;
+  font-size: 2em;
+  line-height: 1.3; }
 
 h2 {
   font-size: 1.5em; }
 
 h4 {
+  font-family: yanone;
   font-size: 1.2em;
-  font-weight: normal; }
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 2pt; }
+
+p {
+  font-size: 1em;
+  font-family: verdana;
+  line-height: 1.5; }
 
 h1, h2, h4, p, span {
   margin: 15px 0; }
 
-h1, h2, h4, p, span, li {
+h2, span, li {
   font-family: yanone;
   text-transform: uppercase;
   letter-spacing: 2pt;
@@ -37,7 +65,7 @@ ul {
   padding: 0; }
 
 header {
-  padding: 100px 0;
+  padding-top: 100px;
   text-align: center; }
 
 footer {
@@ -66,7 +94,8 @@ section {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin: 40px 14em;
+  margin: 40px auto;
+  width: 500px;
   text-align: center; }
   .container::after {
     clear: both;
@@ -99,14 +128,30 @@ section {
     background: url("/images/04.png"); }
 
 #about {
-  background: #e2e2e2; }
+  border-top: 1px solid #e8d1ae;
+  height: 285px; }
   #about ul li {
     display: inline-block;
-    background: #e8d1ae;
+    border: 1px solid #e8d1ae;
     padding: 7px 15px;
     margin-bottom: 10px;
     margin-right: 5px;
-    font-size: 0.9em; }
+    font-size: 0.8em; }
+  #about .arrow {
+    height: 2rem;
+    width: 2rem;
+    border-bottom: 1px solid #bdbdbd;
+    border-right: 1px solid #bdbdbd;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -1rem;
+    -webkit-transition: .4s;
+    transition: .4s;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    cursor: pointer; }
 
 #contact form {
   max-width: 68em;
