@@ -2,18 +2,29 @@
 @import "neat";
 @include font-face("yanone", "../fonts/YanoneKaffeesatz-Regular", $file-formats:"ttf");
 @include font-face("jennifer", "../fonts/Jennifer Lynne Bold", $file-formats:"ttf");
-@include font-face("loki-cola", "../fonts/Loki Cola", $file-formats:"ttf");
+@include font-face("worthwhile", "../fonts/Worthwhile", $file-formats:"ttf");
 @include font-face("merriweather", "../fonts/Merriweather-Regular", $file-formats:"ttf");
 @include font-face("rounded", "../fonts/Rounded-Elegance", $file-formats:"ttf");
 
-$space-top-base: 40px;
-$light-base-color: #fafafa;
-$dark-base-color: #eeecec;
+$space-top-base: 50px;
+$light-base-color: #eeecec;
+$dark-base-color: #e3e3e3;
 $color-pop: #ff9703;
+
+@mixin default-btn {
+  background: $color-pop;
+  padding: 10px 40px;
+  margin-top: 20px;
+  border: 1px solid darken($color-pop,10);
+  border-radius: 15px;
+  color: #fff;
+  font-family: rounded;
+  display: inline-block;
+} 
 
 body{
 	margin:0;
-  background: $light-base-color;
+  background: $dark-base-color;
 }
 h1{
   font-family: rounded;
@@ -49,7 +60,16 @@ ul{
   list-style-type: none;
 }
 header{
+  @include background-image(url(../images/3-1600.jpg));
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   padding-top: 100px;
+
+  h1 {
+    font-family: worthwhile;
+    font-size: 5em;
+  }
 }
 footer{
   background: $dark-base-color;
@@ -68,8 +88,21 @@ section{
   max-width: 960px;
   margin: 0 auto;
 }
+#about{
+  margin-bottom: $space-top-base;
+  p{
+    margin-bottom: 30px;
+  }
+  ul > li{
+    display: inline;
+
+    &:not(:last-child){
+      margin-right: 20px;
+    }
+  }
+}
 #work{
-  background: $dark-base-color;
+  background: $light-base-color;
 	ul{
     max-width: 96rem;
     margin: 0 auto;
@@ -112,23 +145,26 @@ section{
       @include omega(2n);
     }
 
-    .right > input[type="text"] {
-      height: 100px;
+    .right > textarea {
+      height: 140px;
+      top: 0;
     }
 
-    input[type="text"] {
+    input[type="text"], textarea {
       @include fill-parent;
       background-color: lighten($base-color, 5);
       border: none;
-      border-bottom: 1px solid #c1c1c1;
-      padding: 10px;
+      padding: 20px 15px;
       margin: 30px auto 0;
+      font-family: rounded;
+
+      &:focus {
+        outline: none;
+      }
     }
     input[type="submit"]{
-      background: transparentize(#fff, 1);
-      border: 1px solid $base-color;
-      color: $base-color;
-      padding: $padding-btn;
+      @include default-btn;
+      float: right;
     }
   }
 }
@@ -251,12 +287,7 @@ section{
     }
 
     .view-btn {
-      background: $color-pop;
-      padding: 10px 40px;
-      margin-top: 20px;
-      border: 1px solid darken($color-pop,10);
-      border-radius: 15px;
-      display: inline-block;
+      @include default-btn;
     }
   }
 

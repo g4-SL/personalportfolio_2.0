@@ -17,10 +17,10 @@ html {
   src: url("../fonts/Jennifer Lynne Bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: "loki-cola";
+  font-family: "worthwhile";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/Loki Cola.ttf") format("truetype"); }
+  src: url("../fonts/Worthwhile.ttf") format("truetype"); }
 
 @font-face {
   font-family: "merriweather";
@@ -36,7 +36,7 @@ html {
 
 body {
   margin: 0;
-  background: #fafafa; }
+  background: #e3e3e3; }
 
 h1 {
   font-family: rounded;
@@ -72,11 +72,19 @@ ul {
   list-style-type: none; }
 
 header {
+  background-image: url(../images/3-1600.jpg);
+  background-image: url(../images/3-1600.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   padding-top: 100px; }
+  header h1 {
+    font-family: worthwhile;
+    font-size: 5em; }
 
 footer {
-  background: #eeecec;
-  padding-bottom: 40px; }
+  background: #e3e3e3;
+  padding-bottom: 50px; }
 
 #main {
   margin: 0 auto; }
@@ -96,9 +104,18 @@ section {
     display: table; }
 
 .container {
-  padding-top: 40px;
+  padding-top: 50px;
   max-width: 960px;
   margin: 0 auto; }
+
+#about {
+  margin-bottom: 50px; }
+  #about p {
+    margin-bottom: 30px; }
+  #about ul > li {
+    display: inline; }
+    #about ul > li:not(:last-child) {
+      margin-right: 20px; }
 
 #work {
   background: #eeecec; }
@@ -122,13 +139,13 @@ section {
       background: url("/images/04.png"); }
 
 #contact {
-  background: #d6d1d1; }
+  background: #cacaca; }
   #contact form {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
-    margin-bottom: 40px; }
+    margin-bottom: 50px; }
     #contact form:last-child {
       margin-right: 0; }
     #contact form .left, #contact form .right {
@@ -142,20 +159,28 @@ section {
         margin-right: 0; }
       #contact form .left:nth-child(2n+1), #contact form .right:nth-child(2n+1) {
         clear: left; }
-    #contact form .right > input[type="text"] {
-      height: 100px; }
-    #contact form input[type="text"] {
+    #contact form .right > textarea {
+      height: 140px;
+      top: 0; }
+    #contact form input[type="text"], #contact form textarea {
       width: 100%;
-      background-color: #e2dfdf;
+      background-color: #d6d6d6;
       border: none;
-      border-bottom: 1px solid #c1c1c1;
-      padding: 10px;
-      margin: 30px auto 0; }
+      padding: 20px 15px;
+      margin: 30px auto 0;
+      font-family: rounded; }
+      #contact form input[type="text"]:focus, #contact form textarea:focus {
+        outline: none; }
     #contact form input[type="submit"] {
-      background: rgba(255, 255, 255, 0);
-      border: 1px solid #d6d1d1;
-      color: #d6d1d1;
-      padding: 7px 15px; }
+      background: #ff9703;
+      padding: 10px 40px;
+      margin-top: 20px;
+      border: 1px solid #cf7a00;
+      border-radius: 15px;
+      color: #fff;
+      font-family: rounded;
+      display: inline-block;
+      float: right; }
 
 .side-image {
   background: #F9F9F9; }
@@ -254,6 +279,8 @@ section {
       margin-top: 20px;
       border: 1px solid #cf7a00;
       border-radius: 15px;
+      color: #fff;
+      font-family: rounded;
       display: inline-block; }
   .hover-tile-outer .hover-tile-container:hover {
     opacity: 1; }
