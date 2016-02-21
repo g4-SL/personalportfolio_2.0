@@ -11,22 +11,10 @@ html {
   src: url("../fonts/YanoneKaffeesatz-Regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: "jennifer";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Jennifer Lynne Bold.ttf") format("truetype"); }
-
-@font-face {
   font-family: "worthwhile";
   font-style: normal;
   font-weight: normal;
   src: url("../fonts/Worthwhile.ttf") format("truetype"); }
-
-@font-face {
-  font-family: "merriweather";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Merriweather-Regular.ttf") format("truetype"); }
 
 @font-face {
   font-family: "rounded";
@@ -81,9 +69,17 @@ header {
   header h1 {
     font-family: worthwhile;
     font-size: 5em; }
+  header nav {
+    margin-top: 65vh;
+    text-align: center;
+    color: #fff; }
+    header nav ul > li {
+      display: inline; }
+      header nav ul > li:not(:last-child) {
+        margin-right: 20px; }
 
 footer {
-  background: #e3e3e3;
+  background: #b0b0b0;
   padding-bottom: 50px; }
 
 #main {
@@ -251,8 +247,6 @@ section {
     opacity: 0;
     text-align: center; }
     .hover-tile-outer .hover-tile-container p {
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.5em;
       position: relative; }
       .hover-tile-outer .hover-tile-container p:before {
         -webkit-transform: scaleX(0);
@@ -271,6 +265,16 @@ section {
         bottom: -60%;
         background-color: #fff;
         visibility: hidden; }
+    .hover-tile-outer .hover-tile-container:hover p:before {
+      -webkit-transform: scaleX(1);
+      -moz-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      -o-transform: scaleX(1);
+      transform: scaleX(1);
+      visibility: visible; }
+    .hover-tile-outer .hover-tile-container p {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5em; }
     .hover-tile-outer .hover-tile-container h4 {
       margin: 0 0 0.5em 0; }
     .hover-tile-outer .hover-tile-container .view-btn {
@@ -284,10 +288,3 @@ section {
       display: inline-block; }
   .hover-tile-outer .hover-tile-container:hover {
     opacity: 1; }
-    .hover-tile-outer .hover-tile-container:hover p:before {
-      -webkit-transform: scaleX(1);
-      -moz-transform: scaleX(1);
-      -ms-transform: scaleX(1);
-      -o-transform: scaleX(1);
-      transform: scaleX(1);
-      visibility: visible; }
