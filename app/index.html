@@ -22,99 +22,66 @@
 </head>
 <body>
 
-	<header>
+	<header role="header">
 		<div class="container">
 			<h1>Sarah Louise</h1>
 			<p>Hello! I'm Sarah, a software engineer graduate from Vancouver. I started learning web development for the past 2 years, have tried my hands on mobile application development as well prior to that. Keen on diving more into front-end design, but also fairly competent in back-end. And on the side, I do graphic designing.</p>	
 		</div>
 	</header>
 	<div id="main" role="main">
-		<section id="about">
-			<div class="container">
-				<h4>What I've used so far</h4>
-				<ul>
-					<li>C</li>
-					<li>Javascript</li>
-					<li>Java</li>
-					<li>PHP</li>
-					<li>SQL</li>
-					<li>SCSS</li>
-					<li>Gulp</li>
-					<li>Git</li>
-					<li>Bourbon + Neat</li>
-					<li>Adobe Photoshop</li>
-					<li>HTML5 + CSS3</li>
-					<li>Bootstrap</li>
-					<li>Google Webmaster Tool</li>
-				</ul>
-				<div class="arrow"></div>
-			</div>
-		</section>
 		<section id="work">
 			<ul>
 				<li class="hover-tile-outer" id="li1">
 					<a href="01.html">
 						<div class="hover-tile-container">
-							<div class="hover-tile hover-tile-visible"></div>
-							<div class="hover-tile hover-tile-hidden">
-								<h1>Battle of the Ages</h1>
-								<h4>Mobile Application, Android</h4>
-							</div>
+							<h1>Battle of the Ages</h1>
+							<p>Mobile Application, Android</p>
+							<div class="view-btn">View</div>
 						</div>
 					</a>
 				</li>
 				<li class="hover-tile-outer" id="li2">
 					<a href="01.html">
 						<div class="hover-tile-container">
-							<div class="hover-tile hover-tile-visible"></div>
-							<div class="hover-tile hover-tile-hidden">
-								<h1>Sticky Rice Travel</h1>
-								<p>Website, Responsive</p>
-							</div>
+							<h1>Sticky Rice Travel</h1>
+							<p>Website, Responsive</p>
+							<div class="view-btn">View</div>
 						</div>
 					</a>
 				</li>
 				<li class="hover-tile-outer" id="li3">
 					<a href="01.html">
 						<div class="hover-tile-container">
-							<div class="hover-tile hover-tile-visible"></div>
-							<div class="hover-tile hover-tile-hidden">
-								<h1>Child First</h1>
-								<p>Website</p>
-							</div>
+							<h1>Child First</h1>
+							<p>Website</p>
+							<div class="view-btn">View</div>
 						</div>
 					</a>
 				</li>
 				<li class="hover-tile-outer" id="li4">
 					<a href="01.html">
 						<div class="hover-tile-container">
-							<div class="hover-tile hover-tile-visible"></div>
-							<div class="hover-tile hover-tile-hidden">
-								<h1>Olympia</h1>
-								<p>Hybrid Mobile Application</p>
-							</div>
+							<h1>Olympia</h1>
+							<p>Hybrid Mobile Application</p>
+							<div class="view-btn">View</div>
 						</div>
 					</a>
 				</li>
 				<li class="hover-tile-outer" id="li4">
 					<a href="01.html">
 						<div class="hover-tile-container">
-							<div class="hover-tile hover-tile-visible"></div>
-							<div class="hover-tile hover-tile-hidden">
-								<h1>St Francis Convent</h1>
-								<p>Branding</p>
-							</div>
+							<h1>St Francis Convent</h1>
+							<p>Branding</p>
+							<div class="view-btn">View</div>
 						</div>
 					</a>
 				</li>
 				<li class="hover-tile-outer" id="li4">
 					<a href="01.html">
 						<div class="hover-tile-container">
-							<div class="hover-tile hover-tile-visible"></div>
-							<div class="hover-tile hover-tile-hidden">
-								<h1>Electrical &amp; Computer Engineering Student Society (ECESS)</h1>
-								<p>Print</p>
-							</div>
+							<h1>ECE Student Society</h1>
+							<p>Print</p>
+							<div class="view-btn">View</div>
 						</div>
 					</a>
 				</li>
@@ -123,18 +90,23 @@
 		<section id="contact">
 			<div class="container">
 				<h1>Contact</h1>
-				<h2>me</h2>
 				<form>
-					<input type="text" name="firstname" value="" placeholder="Name">
-					<input type="text" name="firstname" value="" placeholder="Email">
-					<input type="text" name="firstname" value="" placeholder="Message">
+					<div class="left">
+						<input type="text" name="firstname" value="" placeholder="Name">
+						<input type="text" name="firstname" value="" placeholder="Email">
+					</div>
+					<div class="right">
+						<input type="text" name="firstname" value="" placeholder="Message">
+					</div>
 					<input type="submit" name="submit" value="Say Hello!" />
 				</form>
 			</div>
 		</section>
 	</div>
 	<footer>
-		<span>Sarah Louise</span>
+		<div class="container">
+			<span>Sarah Louise</span>
+		</div>
 	</footer>
 </body>
 </html>

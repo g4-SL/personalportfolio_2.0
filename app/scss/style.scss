@@ -4,15 +4,19 @@
 @include font-face("jennifer", "../fonts/Jennifer Lynne Bold", $file-formats:"ttf");
 @include font-face("loki-cola", "../fonts/Loki Cola", $file-formats:"ttf");
 @include font-face("merriweather", "../fonts/Merriweather-Regular", $file-formats:"ttf");
+@include font-face("rounded", "../fonts/Rounded-Elegance", $file-formats:"ttf");
 
 $space-top-base: 40px;
+$light-base-color: #fafafa;
+$dark-base-color: #eeecec;
+$color-pop: #ff9703;
 
 body{
 	margin:0;
-  background: #fafafa;
+  background: $light-base-color;
 }
 h1{
-  font-family: jennifer;
+  font-family: rounded;
   font-size: 2em;
   line-height: 1.3;
 }
@@ -27,8 +31,8 @@ h4{
   letter-spacing: 2pt;
 }
 p{
-  font-size: 1em;
-  font-family: verdana;
+  font-size: 1.2em;
+  font-family: rounded;
   line-height: 1.5;
 }
 h1, h2, h4, p, span{
@@ -42,15 +46,14 @@ h2, span, li{
 }
 ul{
 	padding: 0;
+  list-style-type: none;
 }
 header{
   padding-top: 100px;
-  text-align: center;
 }
 footer{
-  padding: $space-top-base 0;
-  text-align: center;
-  background: #e2e2e2;
+  background: $dark-base-color;
+  padding-bottom: $space-top-base;
 }
 #main{
 	margin: 0 auto;
@@ -61,16 +64,15 @@ section{
   padding: 0.1px;
 }
 .container {
-  @include outer-container(100%);
-  $margin-container: $space-top-base auto !default;
-  margin: $margin-container;
-  width: 500px;
-  text-align: center;
+  padding-top: $space-top-base;
+  max-width: 960px;
+  margin: 0 auto;
 }
 #work{
+  background: $dark-base-color;
 	ul{
-		@include outer-container(100%);
-    margin: 0;
+    max-width: 96rem;
+    margin: 0 auto;
 		li{
       float: left;
       width: 50%;
@@ -95,55 +97,32 @@ section{
     }
 	}
 }
-#about{
-  $padding-btn: 7px 15px;
-  $base-color: #e8d1ae;
-  border-top: 1px solid #e8d1ae;
-  height: 285px;
-  ul{
-    li{
-      display: inline-block;
-      border: 1px solid $base-color;
-      padding: $padding-btn;
-      margin-bottom: 10px;
-      margin-right: 5px;
-      font-size: 0.8em;
-    }
-  }
-  .arrow{
-    height: 2rem;
-    width: 2rem;
-    border-bottom: 1px solid #bdbdbd;
-    border-right: 1px solid #bdbdbd;
-    display: block;
-    position: absolute;
-    left: 50%;
-    margin-left: -1rem;
-    -webkit-transition: .4s;
-    transition: .4s;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    cursor: pointer;
-  }
-} 
 
 #contact{
   $padding-btn: 7px 15px;
-  $base-color: #e8d1ae;
-  form{
-    @include outer-container();
-    input[type="text"]{
-      @include span-columns(10);
-      float: none;
-      background-color: transparent;
+  $base-color: darken($dark-base-color, 10);
+  background: $base-color;
+
+  form {
+    @include span-columns(12);
+    margin-bottom: $space-top-base;
+
+    .left, .right{
+      @include span-columns(6 of 12);
+      @include omega(2n);
+    }
+
+    .right > input[type="text"] {
+      height: 100px;
+    }
+
+    input[type="text"] {
+      @include fill-parent;
+      background-color: lighten($base-color, 5);
       border: none;
       border-bottom: 1px solid #c1c1c1;
       padding: 10px;
       margin: 30px auto 0;
-    }
-    input[type="text"]:nth-child(3){
-      margin-bottom: 50px;
     }
     input[type="submit"]{
       background: transparentize(#fff, 1);
@@ -239,34 +218,54 @@ section{
   }
 
   .hover-tile-container {
+    @include transition(all, 0.4s ease);
     height: $hover-tile-height;
-    overflow: hidden;
-  }
-
-  .hover-tile-container:hover > .hover-tile {
-    @include transform(translate(0, -100%));
-  }
-
-  .hover-tile {
-    @include transition(all, 0.4s ease-in-out);
-    background: inherit;
-    color: white;
-    height: inherit;
-    overflow: hidden;
-    padding: $base-spacing;
-  }
-
-  .hover-tile-hidden {
     background: transparentize(#000, 0.4);
-    padding: 100px;
+    color: white;
+    overflow: hidden;
+    padding: 150px 50px;
+    opacity: 0;
+    text-align: center;
 
     p {
       color: transparentize(#fff, 0.3);
       line-height: $base-line-height;
+      position: relative;
+
+      &:before {
+        @include transform(scaleX(0));
+        @include transition(all, 0.3s ease-in-out);
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 2px;
+        left: 30%;
+        bottom: -60%;
+        background-color: #fff;
+        visibility: hidden;
+      }
     }
 
     h4 {
       margin: 0 0 0.5em 0;
+    }
+
+    .view-btn {
+      background: $color-pop;
+      padding: 10px 40px;
+      margin-top: 20px;
+      border: 1px solid darken($color-pop,10);
+      border-radius: 15px;
+      display: inline-block;
+    }
+  }
+
+  .hover-tile-container:hover {
+    opacity: 1;
+
+    p:before {
+      @include transform(scaleX(1));
+      visibility: visible;
     }
   }
 }
