@@ -9,6 +9,13 @@ $light-base-color: #eeecec;
 $dark-base-color: #e3e3e3;
 $color-pop: #ff9703;
 
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @mixin default-btn {
   @include display(inline-block);
   background: $color-pop;
@@ -51,8 +58,8 @@ $color-pop: #ff9703;
 
 
 body{
-	margin:0;
-  background: $dark-base-color;
+	margin: 0;
+  background: #fff;
 }
 h1{
   font-family: rounded;
@@ -92,15 +99,15 @@ header{
   background-size: cover;
   background-position: center;
   height: 100vh;
-  padding-top: 100px;
+  padding: 1px;
 
-  h1 {
-    font-family: worthwhile;
-    font-size: 5em;
+  img {
+    @include centerer;
+    width: em(500);
+
   }
 
   nav {
-    margin-top: 65vh;
     text-align: center;
     top: 0;
     left: 0;
@@ -229,6 +236,16 @@ section{
       @include default-btn;
       float: right;
     }
+  }
+}
+
+.info-divider {
+  background: $light-base-color;
+  text-align: center;
+  padding: 50px 0;
+
+  h4 {
+    margin: 0;
   }
 }
 
