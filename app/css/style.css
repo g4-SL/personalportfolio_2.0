@@ -24,7 +24,7 @@ html {
 
 body {
   margin: 0;
-  background: #fff; }
+  background: #f9f9f9; }
 
 h1 {
   font-family: rounded;
@@ -58,6 +58,24 @@ h2, span, li {
 ul {
   padding: 0;
   list-style-type: none; }
+
+hr {
+  width: 300px;
+  border: 1px solid #000;
+  position: relative;
+  margin: 40px auto; }
+  hr:after {
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 80px;
+    content: "";
+    border: 5px solid #000; }
 
 header {
   background-image: url(../images/3-1600.jpg);
@@ -123,8 +141,15 @@ header {
     z-index: 99999; }
 
 footer {
-  background: #b0b0b0;
-  padding-bottom: 50px; }
+  background: #e0e0e0;
+  text-align: center;
+  padding: 50px 0; }
+  footer ul > li {
+    display: inline; }
+    footer ul > li img {
+      max-width: 24px; }
+    footer ul > li:not(:last-child) {
+      margin-right: 50px; }
 
 #main {
   margin: 0 auto; }
@@ -133,7 +158,8 @@ section {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.1px; }
+  padding: 0.1px;
+  margin: 50px 0; }
   section::after {
     clear: both;
     content: "";
@@ -149,19 +175,16 @@ section {
   margin: 40px auto 0;
   padding: 0 20px; }
 
-#about {
-  margin-bottom: 50px; }
-  #about p {
-    margin-bottom: 30px; }
-  #about ul > li {
-    display: inline; }
-    #about ul > li img {
-      max-width: 24px; }
-    #about ul > li:not(:last-child) {
-      margin-right: 20px; }
+#about p {
+  margin-bottom: 30px; }
 
 #work {
-  background: #eeecec; }
+  background: #ececec; }
+  #work .info-divider {
+    text-align: center;
+    padding: 50px 0; }
+    #work .info-divider h4 {
+      margin: 0; }
   #work ul {
     max-width: 96rem;
     margin: 0 auto; }
@@ -181,54 +204,50 @@ section {
     #work ul li#li4 {
       background: url("/images/04.png"); }
 
-#contact form {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  margin-bottom: 50px; }
-  #contact form:last-child {
-    margin-right: 0; }
-  #contact form .left, #contact form .right {
+#contact {
+  text-align: center; }
+  #contact form {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%; }
-    #contact form .left:last-child, #contact form .right:last-child {
-      margin-right: 0; }
-    #contact form .left:nth-child(2n), #contact form .right:nth-child(2n) {
-      margin-right: 0; }
-    #contact form .left:nth-child(2n+1), #contact form .right:nth-child(2n+1) {
-      clear: left; }
-  #contact form .right > textarea {
-    height: 140px;
-    top: 0; }
-  #contact form input[type="text"], #contact form textarea {
     width: 100%;
-    background-color: #f0efef;
-    border: none;
-    padding: 20px 15px;
-    margin: 30px auto 0;
-    font-family: rounded; }
-    #contact form input[type="text"]:focus, #contact form textarea:focus {
-      outline: none; }
-  #contact form input[type="submit"] {
-    display: inline-block;
-    background: #ff9703;
-    padding: 10px 40px;
-    margin-top: 20px;
-    border: 1px solid #cf7a00;
-    border-radius: 15px;
-    color: #fff;
-    font-family: rounded;
-    float: right; }
-
-.info-divider {
-  background: #eeecec;
-  text-align: center;
-  padding: 50px 0; }
-  .info-divider h4 {
-    margin: 0; }
+    margin-bottom: 50px; }
+    #contact form:last-child {
+      margin-right: 0; }
+    #contact form .left, #contact form .right {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      #contact form .left:last-child, #contact form .right:last-child {
+        margin-right: 0; }
+      #contact form .left:nth-child(2n), #contact form .right:nth-child(2n) {
+        margin-right: 0; }
+      #contact form .left:nth-child(2n+1), #contact form .right:nth-child(2n+1) {
+        clear: left; }
+    #contact form .right > textarea {
+      height: 140px;
+      top: 0; }
+    #contact form input[type="text"], #contact form textarea {
+      width: 100%;
+      background-color: #f0efef;
+      border: none;
+      padding: 20px 15px;
+      margin: 30px auto 0;
+      font-family: rounded;
+      font-size: 0.875em; }
+      #contact form input[type="text"]:focus, #contact form textarea:focus {
+        outline: none; }
+    #contact form input[type="submit"] {
+      display: inline-block;
+      background: #ff9703;
+      padding: 10px 40px;
+      margin-top: 20px;
+      border: 1px solid #cf7a00;
+      border-radius: 15px;
+      color: #fff;
+      font-family: rounded;
+      text-align: center; }
 
 .side-image {
   background: #F9F9F9; }
