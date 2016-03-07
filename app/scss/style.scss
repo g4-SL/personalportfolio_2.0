@@ -1,0 +1,388 @@
+@import "bourbon";
+@import "neat";
+@include font-face("yanone", "../fonts/YanoneKaffeesatz-Regular", $file-formats:"ttf");
+@include font-face("worthwhile", "../fonts/Worthwhile", $file-formats:"ttf");
+@include font-face("rounded", "../fonts/Rounded-Elegance", $file-formats:"ttf");
+
+$space-top-base: 50px;
+$base-bg-color: #f9f9f9;
+$light-base-color: #eeecec;
+$dark-base-color: #e3e3e3;
+$color-pop: #ff9703;
+
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin default-btn {
+  @include display(inline-block);
+  background: $color-pop;
+  padding: 10px 40px;
+  margin-top: 20px;
+  border: 1px solid darken($color-pop,10);
+  border-radius: 15px;
+  color: #fff;
+  font-family: rounded;
+} 
+
+@mixin line-animation($elem, $width) {
+  #{$elem} {
+    position: relative;
+
+    &:before {
+      @include transform(scaleX(0));
+      @include transition(all, 0.3s ease-in-out);
+      content: "";
+      position: absolute;
+      width: $width;
+      height: 3px;
+      margin-right: auto;
+      margin-left: auto;
+      left: 0;
+      right: 0;
+      bottom: -60%;
+      background-color: #fff;
+      visibility: hidden;
+    }
+  }
+
+  &:hover{
+    #{$elem}:before{
+      @include transform(scaleX(1));
+      visibility: visible;
+    }
+  }
+} 
+
+body {
+	margin: 0;
+  background: $base-bg-color;
+}
+h1 {
+  font-family: rounded;
+  font-size: 1.5em;
+  line-height: 1.3;
+}
+h2 {
+  font-size: 1.5em;
+}
+h4 {
+  font-family: yanone;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 2pt;
+}
+p {
+  font-size: 1em;
+  font-family: rounded;
+  line-height: 1.5;
+}
+h1, h2, h4, p, span {
+  margin: 15px 0;
+}
+h2, span, li {
+	font-family: yanone;
+	text-transform: uppercase;
+	letter-spacing: 2pt;
+	line-height: 1.3;
+}
+ul {
+	padding: 0;
+  list-style-type: none;
+}
+hr {
+  width: 300px;
+  border: 1px solid #000;
+  position: relative;
+  margin: 40px auto;
+
+  &:after {
+    @include transform(translateX(-50%));
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 80px;
+    content: "";
+    border: 5px solid #000;
+  }
+}
+header{
+  @include background-image(url(../images/3-1600.jpg));
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding: 1px;
+
+  img {
+    @include centerer;
+    width: em(500);
+
+  }
+
+  nav {
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    ul > li {
+      @include line-animation(a, 100%);
+      @include display(inline);
+
+      &:not(:last-child){
+        margin-right: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+
+  .sticky > nav {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background: darken($dark-base-color, 20);
+    margin-top: 0;
+    z-index: 99999;
+  }
+}
+
+footer {
+  background: darken($base-bg-color, 10);
+  text-align: center;
+  padding: $space-top-base 0;
+
+  ul > li {
+    @include display(inline);
+
+    img{
+      max-width: 24px;
+    }
+
+    &:not(:last-child){
+      margin-right: 50px;
+    }
+  }
+}
+#main {
+	margin: 0 auto;
+}
+section {
+  @include outer-container(100%);
+  @include clearfix;
+  padding: 0.1px;
+  margin: $space-top-base 0;
+}
+.container {
+  padding-top: $space-top-base;
+  max-width: 960px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+#about {
+  p {
+    margin-bottom: 30px;
+  }
+}
+
+#work{
+  background: darken($base-bg-color, 5);
+
+  .info-divider {
+    // background: url(../images/bg/work-bg.png);
+    text-align: center;
+    padding: 50px 0;
+
+    h4 {
+      margin: 0;
+    }
+  }
+
+	ul{
+    max-width: 96rem;
+    margin: 0 auto;
+		li{
+      float: left;
+      width: 50%;
+      a{
+        text-decoration: none;
+        h1{
+          margin-bottom: 15px;
+        }
+      }
+		}
+    li#li1{
+      background: url("/images/11.png");
+    }
+    li#li2{
+      background: url("/images/02.png");
+    }
+    li#li3{
+      background: url("/images/03.png");
+    }
+    li#li4{
+      background: url("/images/04.png");
+    }
+	}
+}
+
+#contact{
+  $padding-btn: 7px 15px;
+  text-align: center;
+
+  form {
+    @include span-columns(12);
+    margin-bottom: $space-top-base;
+
+    .left, .right{
+      @include span-columns(6 of 12);
+      @include omega(2n);
+    }
+
+    .right > textarea {
+      height: 140px;
+      top: 0;
+    }
+
+    input[type="text"], textarea {
+      @include fill-parent;
+      background-color: lighten($light-base-color, 1);
+      border: none;
+      padding: 20px 15px;
+      margin: 30px auto 0;
+      font-family: rounded;
+      font-size: em(14);
+
+      &:focus {
+        outline: none;
+      }
+    }
+    input[type="submit"]{
+      @include default-btn;
+      text-align: center;
+    }
+  }
+}
+
+.side-image {  
+  $base-line-height: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $large-screen: em(860) !default;
+  $base-font-color: $dark-gray !default;
+  $side-image-background-top: #B5EBEB;
+  $side-image-background-bottom: #5DAC5D;
+  $side-image-content-background: #F9F9F9;
+  $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
+
+  background: $side-image-content-background;
+
+  @include media($large-screen) {
+    @include row(table);
+  }
+
+  .images-wrapper {
+    @include background(url('https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png'), linear-gradient($side-image-background-top, $side-image-background-bottom), no-repeat $side-image-background-top scroll);
+    @include display(block);
+    background-color: $side-image-background-top;
+    background-size: cover;
+    border-bottom: $side-image-border;
+    min-height: 12em;
+    padding: 3em;
+
+    @include media($large-screen) {
+      @include span-columns(6);
+      background-position: bottom;
+      background-size: cover;
+      border-right: $side-image-border;
+    }
+  }
+
+  .side-image-content {
+    @include span-columns(12);
+    padding: 1em 1em 4em 1em;
+
+    @include media($large-screen) {
+      @include span-columns(6);
+      padding: 4em 4em 8em 4em;
+    }
+
+    h1 {
+      margin-bottom: 0.9em;
+    }
+
+    h4 {
+      @include display(inline-block);
+      background: #BBB;
+      color: white;
+      font-size: 0.75em;
+      margin-bottom: 1.3em;
+      padding: 3px 8px;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: $base-font-color;
+      line-height: $base-line-height;
+      margin-bottom: 3em;
+    }
+  }
+
+  @include reset-display();
+}
+
+.hover-tile-outer {
+  $base-line-height: 1.5em !default;
+  $medium-screen: em(640) !default;
+  $hover-tile-height: 28em;
+  $base-spacing: 1.5em;
+
+  background-position: top;
+  background-size: cover;
+  background-color: beige;
+  cursor: pointer;
+  height: $hover-tile-height;
+  margin-bottom: 0;
+  
+  @include media($medium-screen) {
+    width: 40%;
+  }
+
+  .hover-tile-container {
+    @include transition(all, 0.4s ease);
+    @include line-animation(p, 40%);
+    height: $hover-tile-height;
+    background: transparentize(#000, 0.4);
+    color: white;
+    overflow: hidden;
+    padding: 150px 50px;
+    opacity: 0;
+    text-align: center;
+
+    p {
+      color: transparentize(#fff, 0.3);
+      line-height: $base-line-height;
+    }
+
+    h4 {
+      margin: 0 0 0.5em 0;
+    }
+
+    .view-btn {
+      @include default-btn;
+    }
+  }
+
+  .hover-tile-container:hover {
+    opacity: 1;
+  }
+}
