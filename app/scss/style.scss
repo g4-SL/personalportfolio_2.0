@@ -273,6 +273,57 @@ section {
   }
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
+.modal-box {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 99999;
+  overflow: auto;
+  visibility: hidden;
+
+  &.show { 
+    visibility: visible;
+  }
+
+  &.show > .modal-wrapper { 
+    @include transform(translateY(0));
+    opacity: 1;
+  }
+
+  .modal-wrapper {
+    @include transform(translateY(20%));
+    @include transition(all .3s);
+    opacity: 0;
+    position: relative;
+    padding: 5px 250px 13px;
+    background: white;
+  }
+
+  .inner-wrapper {
+    margin-top: 100px;
+  }
+
+  .close {
+    position: absolute;
+    right: 2em;
+    top: 2em;
+    cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
 .side-image {  
   $base-line-height: 1.5em !default;
   $action-color: #477DCA !default;
