@@ -274,6 +274,10 @@ section {
     #social ul > li:not(:last-child) {
       margin-right: 50px; }
 
+.project a {
+  color: inherit;
+  text-decoration: none; }
+
 .project h2 {
   text-align: center;
   text-transform: uppercase;
