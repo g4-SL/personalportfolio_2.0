@@ -196,22 +196,18 @@ section {
         #work ul li a h1 {
           margin-bottom: 15px; }
     #work ul li#li1 {
-      background: url("/images/11.png"); }
-    #work ul li#li2 {
-      background: url("/images/02.png"); }
-    #work ul li#li3 {
-      background: url("/images/03.png"); }
+      background: url("../images/11.png"); }
     #work ul li#li4 {
-      background: url("/images/04.png"); }
+      background: url("../images/04.png"); }
     #work ul li#preview-srt {
-      background: url("/images/srt.jpg") center top; }
+      background: url("../images/srt.jpg") center top; }
     #work ul li#preview-personal {
-      background: url("/images/personal.jpg") center; }
+      background: url("../images/personal.jpg") center; }
     #work ul li#preview-childfirst {
-      background: url("/images/childfirst.jpg"); }
+      background: url("../images/childfirst.jpg"); }
     #work ul li#preview-olympia {
-      background: url("/images/olympia.jpg"), url("/images/olympia-bg.jpg");
-      background: url("/images/olympia.jpg"), url("/images/olympia-bg.jpg");
+      background: url("../images/olympia.jpg"), url("../images/olympia-bg.jpg");
+      background: url("../images/olympia.jpg"), url("../images/olympia-bg.jpg");
       background-repeat: no-repeat, repeat;
       background-position: center; }
 

@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    php = require('gulp-connect-php'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     useref = require('gulp-useref'),
@@ -63,10 +62,6 @@ gulp.task('clean', function() {
   });
 });
 
-gulp.task('clean:dist', function() {
-  return del.sync(['dist/**/*', '!dist/images', '!dist/images/**/*']);
-});
-
 gulp.task('images', function(){
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
   // Caching images that ran through imagemin
@@ -74,6 +69,10 @@ gulp.task('images', function(){
       interlaced: true
     })))
   .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('clean:dist', function() {
+  return del.sync(['dist/**/*', '!dist/images', '!dist/images/**/*']);
 });
 
 // Build Sequences

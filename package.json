@@ -1,0 +1,39 @@
+{
+  "name": "personalportfolio_2.0",
+  "version": "1.0.0",
+  "description": "Static pages for my personal portfolio displaying recent projects. Purpose of this project is to learn and incorporate gulp, sass and bourbon in web development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g4-SL/personalportfolio_2.0.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g4-SL/personalportfolio_2.0/issues"
+  },
+  "homepage": "https://github.com/g4-SL/personalportfolio_2.0#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.2",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-useref": "^3.0.5",
+    "jquery": "^2.2.1",
+    "node-bourbon": "^4.2.3",
+    "node-neat": "^1.7.2",
+    "run-sequence": "^1.1.5"
+  },
+  "dependencies": {
+    "jquery": "^2.2.1"
+  }
+}
