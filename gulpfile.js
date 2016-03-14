@@ -55,6 +55,11 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest('dist/fonts'));
 });
 
+gulp.task('php', function() {
+  return gulp.src('app/php/**/*')
+    .pipe(gulp.dest('dist/php'));
+});
+
 // Cleaning 
 gulp.task('clean', function() {
   return del.sync('dist').then(function(cb) {
@@ -87,7 +92,7 @@ gulp.task('default', function(callback) {
 gulp.task('build', function(callback) {
   runSequence(
     'clean:dist',
-    ['sass', 'useref', 'images', 'fonts'],
+    ['sass', 'useref', 'images', 'fonts', 'php'],
     callback
   );
 });
