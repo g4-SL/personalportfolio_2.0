@@ -48,8 +48,11 @@ p {
 
 p.minify {
   font-size: 0.85em;
-  max-width: 600px;
+  max-width: 300px;
   margin: 0 auto; }
+  @media screen and (min-width: 45em) {
+    p.minify {
+      max-width: 600px; } }
 
 h1, h2, h4, p, span {
   font-family: rounded;
@@ -66,7 +69,7 @@ ul {
   list-style-type: none; }
 
 hr {
-  width: 300px;
+  width: 200px;
   border: 1px solid #000;
   position: relative;
   margin: 40px auto; }
@@ -82,6 +85,9 @@ hr {
     width: 80px;
     content: "";
     border: 5px solid #000; }
+  @media screen and (min-width: 45em) {
+    hr {
+      width: 300px; } }
 
 header {
   background-color: #fcfcfc; }
@@ -102,13 +108,14 @@ header {
     background: black;
     box-shadow: 0 0.5em 0 0 black, 0 1em 0 0 black; }
   header .nav-icon-wrapper {
-    padding: 30px 50px; }
+    padding: 30px 20px; }
   header .nav-link:hover {
     cursor: pointer; }
   header nav {
     -webkit-transition: all, 0.4s ease;
     -moz-transition: all, 0.4s ease;
     transition: all, 0.4s ease;
+    padding: 1px;
     opacity: 0;
     position: relative;
     background: #fcfcfc;
@@ -118,7 +125,7 @@ header {
     visibility: hidden; }
     header nav ul {
       margin: 0;
-      padding: 0 50px 30px;
+      padding: 0 20px 30px;
       position: absolute;
       background: #fcfcfc;
       width: 100%; }
@@ -143,6 +150,11 @@ header {
     right: 0;
     position: fixed;
     z-index: 9997; }
+  @media screen and (min-width: 45em) {
+    header .nav-icon-wrapper {
+      padding: 30px 50px; }
+    header nav ul {
+      padding: 0 50px 30px; } }
 
 footer {
   text-align: center;
@@ -150,8 +162,14 @@ footer {
 
 #main {
   position: relative;
-  margin: 0 40px;
+  margin: 0 10px;
   background: #f7f7f7; }
+  @media screen and (min-width: 45em) {
+    #main {
+      margin: 0 20px; } }
+  @media screen and (min-width: 60em) {
+    #main {
+      margin: 0 40px; } }
 
 section {
   max-width: 100%;
@@ -176,8 +194,15 @@ section {
 
 #about {
   background: url(../images/2-1600.jpg) no-repeat center left;
-  padding: 100px 0;
+  padding: 10px 0 30px;
   margin: 0; }
+  #about p {
+    font-size: 0.85em; }
+  @media screen and (min-width: 45em) {
+    #about {
+      padding: 100px 0; }
+      #about p {
+        font-size: inherit; } }
 
 #work {
   margin-top: 0; }
@@ -222,16 +247,7 @@ section {
     #contact form:last-child {
       margin-right: 0; }
     #contact form .left, #contact form .right {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      #contact form .left:last-child, #contact form .right:last-child {
-        margin-right: 0; }
-      #contact form .left:nth-child(2n), #contact form .right:nth-child(2n) {
-        margin-right: 0; }
-      #contact form .left:nth-child(2n+1), #contact form .right:nth-child(2n+1) {
-        clear: left; }
+      width: 100%; }
     #contact form .right > textarea {
       height: 140px;
       top: 0; }
@@ -239,10 +255,10 @@ section {
       width: 100%;
       background-color: #f0efef;
       border: none;
-      padding: 20px 15px;
-      margin: 30px auto 0;
+      padding: 15px;
+      margin: 15px auto 0;
       font-family: rounded;
-      font-size: 0.875em; }
+      font-size: 0.75em; }
       #contact form input[type="text"]:focus, #contact form textarea:focus {
         outline: none; }
     #contact form input[type="submit"] {
@@ -258,10 +274,26 @@ section {
       #contact form input[type="submit"]:hover {
         cursor: pointer;
         background: #e38600; }
+  @media screen and (min-width: 45em) {
+    #contact form .left, #contact form .right {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      #contact form .left:last-child, #contact form .right:last-child {
+        margin-right: 0; }
+      #contact form .left:nth-child(2n), #contact form .right:nth-child(2n) {
+        margin-right: 0; }
+      #contact form .left:nth-child(2n+1), #contact form .right:nth-child(2n+1) {
+        clear: left; }
+    #contact form input[type="text"], #contact form textarea {
+      padding: 20px 15px;
+      font-size: 0.875em;
+      margin-top: 30px; } }
 
 #social {
   background: #e0e0e0;
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center; }
   #social ul > li {
     display: inline; }
@@ -269,6 +301,9 @@ section {
       max-width: 24px; }
     #social ul > li:not(:last-child) {
       margin-right: 50px; }
+  @media screen and (min-width: 45em) {
+    #social {
+      padding: 50px 0; } }
 
 .project a {
   color: inherit;

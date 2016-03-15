@@ -4,6 +4,11 @@
 @include font-face("worthwhile", "../fonts/Worthwhile", $file-formats:"ttf");
 @include font-face("rounded", "../fonts/Rounded-Elegance", $file-formats:"ttf");
 
+$mobile: em(480);
+$tablet: em(720);
+$desktop: em(960);
+$largedesktop: em(1050);
+
 $space-top-base: 50px;
 $base-bg-color: #f9f9f9;
 $light-base-color: #eeecec;
@@ -84,8 +89,12 @@ p {
 }
 p.minify {
   font-size: 0.85em;
-  max-width: 600px;
+  max-width: 300px;
   margin: 0 auto;
+
+  @include media($tablet) {
+    max-width: 600px;
+  }
 }
 h1, h2, h4, p, span{
   font-family: rounded;
@@ -102,7 +111,7 @@ ul {
   list-style-type: none;
 }
 hr {
-  width: 300px;
+  width: 200px;
   border: 1px solid #000;
   position: relative;
   margin: 40px auto;
@@ -116,9 +125,14 @@ hr {
     content: "";
     border: 5px solid #000;
   }
+
+  @include media($tablet) {
+    width: 300px;
+  }
 }
 
 header{
+  $header-side-margin: 20px;
   background-color: $body-bg;
 
   .box-shadow-menu {
@@ -140,7 +154,7 @@ header{
   }
 
   .nav-icon-wrapper {
-    padding: 30px 50px;
+    padding: 30px $header-side-margin;
   }
 
   .nav-link:hover {
@@ -149,6 +163,7 @@ header{
 
   nav {
     @include transition(all, 0.4s ease);
+    padding: 1px;
     opacity: 0;
     position: relative;
     background: $body-bg;
@@ -159,7 +174,7 @@ header{
 
     ul {
       margin: 0;
-      padding: 0 50px 30px;
+      padding: 0 $header-side-margin 30px;
       position: absolute;
       background: $body-bg;
       width: 100%;
@@ -198,6 +213,18 @@ header{
     position: fixed;
     z-index: 9997;
   }
+
+  @include media($tablet) {
+    $header-side-margin: 50px;
+
+    .nav-icon-wrapper {
+      padding: 30px $header-side-margin;
+    }
+
+    nav ul {
+      padding: 0 $header-side-margin 30px;
+    }
+  }
 }
 
 footer {
@@ -207,8 +234,16 @@ footer {
 
 #main {
   position: relative;
-  margin: 0 40px;
+  margin: 0 10px;
   background: $main-bg;
+
+  @include media($tablet) {
+    margin: 0 20px;
+  }
+
+  @include media($desktop) {
+    margin: 0 40px;
+  }
 }
 
 section {
@@ -226,8 +261,16 @@ section {
 
 #about {
   background: url(../images/2-1600.jpg) no-repeat center left;
-  padding: 100px 0;
+  padding: 10px 0 30px;
   margin: 0;
+
+  p { font-size: 0.85em; }
+
+  @include media($tablet) {
+    padding: 100px 0;
+
+    p { font-size: inherit; }
+  }
 }
 
 #work{
@@ -286,8 +329,7 @@ section {
     margin-bottom: $space-top-base;
 
     .left, .right{
-      @include span-columns(6 of 12);
-      @include omega(2n);
+      @include fill-parent;
     }
 
     .right > textarea {
@@ -299,10 +341,10 @@ section {
       @include fill-parent;
       background-color: lighten($light-base-color, 1);
       border: none;
-      padding: 20px 15px;
-      margin: 30px auto 0;
+      padding: 15px;
+      margin: 15px auto 0;
       font-family: rounded;
-      font-size: em(14);
+      font-size: em(12);
 
       &:focus {
         outline: none;
@@ -313,11 +355,24 @@ section {
       text-align: center;
     }
   }
+
+  @include media($tablet) {
+    form .left, form .right{
+      @include span-columns(6 of 12);
+      @include omega(2n);
+    }
+
+    form input[type="text"], form textarea {
+      padding: 20px 15px;
+      font-size: em(14);
+      margin-top: 30px;
+    }
+  }
 }
 
 #social {
   background: darken($base-bg-color, 10);
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center;
 
   ul > li {
@@ -330,6 +385,10 @@ section {
     &:not(:last-child){
       margin-right: 50px;
     }
+  }
+
+  @include media($tablet) {
+    padding: 50px 0;
   }
 }
 
