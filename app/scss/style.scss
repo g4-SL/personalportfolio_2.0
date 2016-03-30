@@ -134,6 +134,11 @@ hr {
 header{
   $header-side-margin: 20px;
   background-color: $body-bg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999999;
 
   .box-shadow-menu {
     @include clearfix;
@@ -300,8 +305,8 @@ section {
     li#li1{
       background: url("../images/11.png");
     }
-    li#li4{
-      background: url("../images/04.png");
+    li#preview-print{
+      background: url("../images/05.png");
     }
     li#preview-srt{
       background: url("../images/srt.jpg") center top;
@@ -406,6 +411,7 @@ section {
 
   ul {
     text-align: center;
+    margin-top: 0;
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid #000; 
@@ -424,6 +430,32 @@ section {
   p {
     margin-bottom: 50px;
   }
+
+  .project-header {
+    text-align: center;
+
+    * {
+      display: inline-block;
+    }
+
+    a {
+      padding-left: 10px;
+
+      img {
+        opacity: 0.6;
+      }
+    }
+
+    a:hover img {
+      opacity: 0.8;
+    }
+  }
+}
+
+.project#print {
+  img {
+    width: 49.5%;
+  }
 }
 
 .no-scroll {
@@ -432,10 +464,9 @@ section {
 
 .modal-box {
   position: fixed;
-  top: 73px;
+  right: 0;
+  left: 0;
   bottom: 0;
-  left: 40px;
-  right: 40px;
   background: rgba(0,0,0,0.5);
   z-index: 99;
   visibility: hidden;
@@ -455,7 +486,7 @@ section {
     @include transition(all .3s);
     opacity: 0;
     position: relative;
-    padding: 50px 250px;
+    padding: 10px;
     background: white;
   }
 
@@ -494,6 +525,22 @@ section {
 
   img {
     max-width: 100%;
+  }
+
+  @include media($tablet) {
+    right: 20px;
+    left: 20px;
+    .modal-wrapper {
+      padding: 50px;
+    }
+  }
+
+  @include media($desktop) {
+    right: 40px;
+    left: 40px;
+    .modal-wrapper {
+      padding: 50px 250px;
+    }
   }
 }
 
