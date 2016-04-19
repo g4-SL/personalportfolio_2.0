@@ -348,7 +348,10 @@ section {
     opacity: 0.8; }
 
 .project#print img {
-  width: 49.5%; }
+  width: 100%; }
+  @media screen and (min-width: 45em) {
+    .project#print img {
+      width: 49.5%; } }
 
 .no-scroll {
   overflow: hidden; }
@@ -428,7 +431,7 @@ section {
       right: 40px;
       left: 40px; }
       .modal-box .modal-wrapper {
-        padding: 50px 250px; } }
+        padding: 50px 200px; } }
 
 .hover-tile-outer {
   background-position: top;

@@ -454,8 +454,13 @@ section {
 
 .project#print {
   img {
-    width: 49.5%;
+    width: 100%;
+
+    @include media($tablet){
+      width: 49.5%;
+    }
   }
+
 }
 
 .no-scroll {
@@ -539,7 +544,7 @@ section {
     right: 40px;
     left: 40px;
     .modal-wrapper {
-      padding: 50px 250px;
+      padding: 50px 200px;
     }
   }
 }
