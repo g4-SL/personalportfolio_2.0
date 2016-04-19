@@ -1,5 +1,6 @@
 # Ignore development files
 app
+dist
 node_modules
 .sass-cache
 .DS_Store
